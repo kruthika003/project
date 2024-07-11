@@ -1,0 +1,490 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body class="bg-slate-200">
+    <!---- menu button start----->
+    <button
+      data-drawer-target="sidebar-multi-level-sidebar"
+      data-drawer-toggle="sidebar-multi-level-sidebar"
+      aria-controls="sidebar-multi-level-sidebar"
+      type="button"
+      class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+    >
+      <span class="sr-only">Open sidebar</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+        ></path>
+      </svg>
+    </button>
+    <!-- menu button end----->
+    <!-- -------Dashboard content start ---------->
+    <aside
+      id="sidebar-multi-level-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar"
+    >
+      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a
+              href="#"
+              class="flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <div
+                class="p-2 mt-4 ml-0 w-[180px] flex item-center duration-300 cursor-pointer bg-slate-300 hover:ring-2 ring-neutral-400 rounded-tr-2xl"
+              >
+                <!-- <i class="bi bi-kanban-fill text-xl text--400"></i> -->
+                <h1 class="text-md px-3.5 text-center pl-5">Dashboard</h1>
+              </div>
+            </a>
+          </li>
+          <!------------ aptitude section open ---------------------->
+          <div
+            class="p-2 mt-4 flex item-center duration-300 cursor-pointer hover:ring-2 ring-neutral-400 rounded-md"
+            onclick="aptitude()"
+          >
+            <!-- rounded-md px-2 py-1 bg-neutral-400
+       use if need of that -->
+            <i class="bi bi-question-diamond-fill text-xl text--400"></i>
+            <h1 class="text-md px-3.5">Aptitude</h1>
+            <i
+              class="bi bi-chevron-bar-down text-lg ml-[90px]"
+              id="Apparrow"
+            ></i>
+          </div>
+          <div
+            class="text-left text-md font-lg mt-2 w-4/5 mx-auto"
+            id="appmenu"
+          >
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Area
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Algebra
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Average
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Time and Speed
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Time and work
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            ></p>
+          </div>
+          <!---------------- Technical section start and aptitude ends----------- -->
+          <div
+            class="p-2 mt-4 flex item-center duration-300 cursor-pointer hover:ring-2 ring-neutral-400 rounded-md"
+            onclick="technical()"
+          >
+            <i class="bi bi-database-fill-gear text-xl text-gray-800"></i>
+            <h1 class="text-md px-3.5">Technical</h1>
+            <i
+              class="bi bi-chevron-bar-down text-lg ml-[89px]"
+              id="arrtechow"
+            ></i>
+          </div>
+          <div
+            class="text-left text-md font-lg mt-2 w-4/5 mx-auto"
+            id="techmenu"
+          >
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              DSA
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Networking
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Operating system
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Database Management
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Programming Languages
+            </p>
+          </div>
+          <!--------------- verbal section start tech ends --------------------->
+          <div
+            class="p-2 mt-4 flex item-center duration-300 cursor-pointer hover:ring-2 ring-neutral-400 rounded-md"
+            onclick="verbal()"
+          >
+            <i class="bi bi-mic-fill text-xl text-gray-800"></i>
+            <h1 class="text-md px-3.5">Verbal</h1>
+            <i
+              class="bi bi-chevron-bar-down text-lg ml-[109px]"
+              id="verbarrow"
+            ></i>
+          </div>
+          <div
+            class="text-left text-md font-lg mt-2 w-4/5 mx-auto"
+            id="verbmenu"
+          >
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Clock
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Calender
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Directions
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Puzzle
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Syllogism
+            </p>
+          </div>
+
+          <!------------- verbal ends and probability start ------------->
+          <div
+            class="p-2 mt-4 flex item-center duration-300 cursor-pointer hover:ring-2 ring-neutral-400 rounded-md"
+            onclick="probability()"
+          >
+            <i class="bi bi-bar-chart-fill text-xl text-gray-800"></i>
+            <h1 class="text-md px-3.5">Probability</h1>
+            <i
+              class="bi bi-chevron-bar-down text-lg ml-[78px]"
+              id="proarrow"
+            ></i>
+          </div>
+          <div
+            class="text-left text-md font-lg mt-2 w-4/5 mx-auto"
+            id="promenu"
+          >
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Idiom
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Anology
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Synonyms
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Antonyms
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Arrangements
+            </p>
+          </div>
+          <!---------- probability end bot start ----------------->
+
+          <div
+            class="mt-4 flex item-center duration-300 cursor-pointer hover:ring-2 ring-neutral-400 rounded-md"
+            onclick="dropdown()"
+          >
+            <i class="bi bi-compass-fill text-xl text-gray-800 pl-2 py-1.5"></i>
+            <h1 class="text-md px-3">Explore our other bot</h1>
+            <i
+              class="bi bi-chevron-bar-down text-lg ml-[78px] py-1.5"
+              id="arrow"
+            ></i>
+          </div>
+          <div
+            class="text-left text-md font-lg mt-2 w-4/5 mx-auto"
+            id="submenu"
+          >
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Inter Bot
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Chat Bot
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Resume Bot
+            </p>
+            <!-- <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              MCQ Bot
+            </p> -->
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Intercode Bot
+            </p>
+            <p
+              class="cursor-pointer p-2 text-sm hover:bg-gray-400 rounded-md mt-1 text-gray-900"
+            >
+              Group Discussion Bot
+            </p>
+          </div>
+          <hr class="mt-5" />
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 18"
+              >
+                <path
+                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"
+                />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="index3.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <i
+                class="bi bi-arrow-left-circle-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              ></i>
+              <span class="flex-1 ms-3 whitespace-nowrap">Exit</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <!-- -------Dashboard content ends ---------->
+    <!-- mcq question side start----->
+    <div class="p-4 sm:ml-64 bg-slate-200">
+      <h3 class="text-3xl font-bold dark:text-white px-5 mb-5">MCQ Bot</h3>
+      <div class="flex mb-8">
+        <p class="text-xl font-semibold text-gray-800 dark:text-white pl-5">
+          Aptitude
+        </p>
+        <p class="text-lg font-semibold text-gray-800 dark:text-white pl-2">
+          / Speed and Distance
+        </p>
+      </div>
+      <div
+        class="border-0 bg-slate-300 border-gray-800 border-solid rounded-lg dark:border-gray-700 w-[90%] mx-12"
+      >
+        <div class="flex rounded dark:bg-gray-800 p-2 px-4 pt-9">
+          <p class="text-gray-950 dark:text-gray-400 pr-2">1.</p>
+          <p class="text-gray-800 dark:text-gray-400">
+            When he P : did not know Q : he was nervous and R : heard the hue
+            and cry at midnight S : what to do The Proper sequence should be:
+            RQPS QSPR SQPR
+          </p>
+        </div>
+        <div
+          class="grid grid-flow-row-dense grid-cols-1 grid-rows-2 px-[8%] py-5"
+        >
+          <div class="ml-0 py-3 mt-1 flex item-center">
+            <span class="px-2"
+              ><button
+                type="button"
+                class="relative inline-flex items-center justify-center px-1 mt-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-1 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+              >
+                <h4 class="p-2 mr-0">A</h4>
+              </button></span
+            >
+            <button
+              class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+            >
+              <span
+                class="relative px-6 py-2 w-60 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+              >
+                100 kmph
+              </span>
+            </button>
+          </div>
+          <div class="ml-0 py-3 mt-1 flex item-center">
+            <span class="px-2"
+              ><button
+                type="button"
+                class="relative inline-flex items-center justify-center px-1 mt-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-1 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+              >
+                <h4 class="p-2 mr-0">B</h4>
+              </button></span
+            >
+            <button
+              class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+            >
+              <span
+                class="relative px-6 py-2 w-60 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+              >
+                110 kmph
+              </span>
+            </button>
+          </div>
+          <div class="ml-0 py-3 mt-1 flex item-center">
+            <span class="px-2"
+              ><button
+                type="button"
+                class="relative inline-flex items-center justify-center px-1 mt-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-1 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+              >
+                <h4 class="p-2 mr-0">C</h4>
+              </button></span
+            >
+            <button
+              class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+            >
+              <span
+                class="relative px-6 py-2 w-60 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+              >
+                120 kmph
+              </span>
+            </button>
+          </div>
+          <div class="ml-0 py-3 mt-1 flex item-center">
+            <span class="px-2"
+              ><button
+                type="button"
+                class="relative inline-flex items-center justify-center px-1 mt-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-1 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+              >
+                <h4 class="p-2 mr-0">D</h4>
+              </button></span
+            >
+            <button
+              class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+            >
+              <span
+                class="relative px-6 py-2 w-60 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+              >
+                130 kmph
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="mt-20">
+        <div class="relative mt-5 mb-6">
+          <div class="absolute bottom-0 right-[90px]">
+            <div class="flex">
+              <div class="flex-initial">
+                <a href="index3.html">
+                  <button
+                    type="button"
+                    class="text-white bg-slate-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    <i class="bi bi-box-arrow-left text-xl px-2"></i>
+                    Back
+                  </button></a
+                >
+              </div>
+              <div class="flex-initial">
+                <button
+                  type="button"
+                  class="text-white bg-slate-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Next
+                  <i class="bi bi-box-arrow-right text-xl px-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mcq question side ends----->
+    <script type="text/javascript">
+      dropdown();
+      probability();
+      verbal();
+      aptitude();
+      technical();
+
+      function verbal() {
+        document.querySelector("#verbmenu").classList.toggle("hidden");
+        document.querySelector("#verbarrow").classList.toggle("rotate-0");
+      }
+
+      function probability() {
+        document.querySelector("#promenu").classList.toggle("hidden");
+        document.querySelector("#proarrow").classList.toggle("rotate-0");
+      }
+
+      function dropdown() {
+        document.querySelector("#submenu").classList.toggle("hidden");
+        document.querySelector("#arrow").classList.toggle("rotate-0");
+      }
+
+      function aptitude() {
+        document.querySelector("#appmenu").classList.toggle("hidden");
+        document.querySelector("#Apparrow").classList.toggle("rotate-0");
+      }
+
+      function technical() {
+        document.querySelector("#techmenu").classList.toggle("hidden");
+        document.querySelector("#techarrow").classList.toggle("rotate-0");
+      }
+
+      function open() {
+        document.querySelector("sidebar").classList.toggle("left-[-300px]");
+      }
+    </script>
+  </body>
+</html>

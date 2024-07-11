@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <div class="container mx-auto p-6">
+    <!-- Header -->
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800">MCQ App Dashboard</h1>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Sections -->
+      <section class="col-span-1 lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4 flex items-center"><i class="lni lni-dashboard mr-2"></i>Sections</h2>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <a href="mcqmain.html" class="block p-4 bg-blue-100 rounded-lg shadow-sm hover:bg-blue-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-semibold">Aptitude</span>
+              <i class="lni lni-calculator text-3xl text-blue-500"></i>
+            </div>
+          </a>
+          <a href="mcqmain.html" class="block p-4 bg-green-100 rounded-lg shadow-sm hover:bg-green-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-semibold">Technical</span>
+              <i class="lni lni-cogs text-3xl text-green-500"></i>
+            </div>
+          </a>
+          <a href="mcqmain.html" class="block p-4 bg-yellow-100 rounded-lg shadow-sm hover:bg-yellow-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-semibold">Verbal</span>
+              <i class="lni lni-text-format text-3xl text-yellow-500"></i>
+            </div>
+          </a>
+          <a href="mcqmain.html" class="block p-4 bg-red-100 rounded-lg shadow-sm hover:bg-red-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-semibold">Probability</span>
+              <i class="lni lni-bar-chart text-3xl text-red-500"></i>
+            </div>
+          </a>
+        </div>
+        <h3 class="text-xl font-semibold mb-4">Daily Problems Solved</h3>
+        <div class="mb-4">
+          <canvas id="dailyProblemsChart"></canvas>
+        </div>
+      </section>
+      
+      <!-- Statistics -->
+      <section class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4 flex items-center"><i class="lni lni-stats-up mr-2"></i>Statistics</h2>
+        <div class="mb-4">
+          <canvas id="questionsChart"></canvas>
+        </div>
+        <ul class="text-gray-700">
+          <li class="mb-2 flex items-center">
+            <i class="lni lni-checkmark-circle mr-2 text-green-500"></i>No of Questions Solved: <span class="font-bold ml-2">120</span>
+          </li>
+          <li class="mb-2 flex items-center">
+            <i class="lni lni-thumbs-up mr-2 text-blue-500"></i>No of Questions Correct: <span class="font-bold ml-2">85</span>
+          </li>
+          <li class="mb-2 flex items-start">
+            <i class="lni lni-target mr-2 text-yellow-500"></i>
+            <div>
+              Topics to Work On:
+              <ul class="ml-4">
+                <li>- Probability</li>
+                <li>- Verbal Reasoning</li>
+              </ul>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="lni lni-trending-up mr-2 text-red-500"></i>
+            <div>
+              Trending Topics:
+              <ul class="ml-4">
+                <li>- Data Structures</li>
+                <li>- Logical Reasoning</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const ctxQuestions = document.getElementById('questionsChart').getContext('2d');
+    const questionsChart = new Chart(ctxQuestions, {
+      type: 'doughnut',
+      data: {
+        labels: ['Correct', 'Incorrect'],
+        datasets: [{
+          label: 'Questions',
+          data: [85, 35],
+          backgroundColor: ['#4CAF50', '#F44336'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    const ctxDailyProblems = document.getElementById('dailyProblemsChart').getContext('2d');
+    const dailyProblemsChart = new Chart(ctxDailyProblems, {
+      type: 'bar',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Problems Solved',
+          data: [10, 20, 15, 25, 30, 35, 40],
+          backgroundColor: '#2196F3',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Days'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'No of Problems Solved'
+            },
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
